@@ -6,6 +6,19 @@
     <title>Latihan API JS</title>
   </head>
   <body>
+    <h1>Kota Wilayah Indonesia</h1>
+    <form>
+      <label for="select_provinsi">Pilih Provinsi:</label>
+      <select id="select_provinsi">
+        <option value="">Pilih Provinsi</option>
+      </select>
+    </form>
+    <form action="">
+      <label for="select_kota">Pilih Kota:</label>
+      <select name="" id="select_kota">
+        <option value="">Pilih Kota</option>
+      </select>
+    </form>
     <script>
       var xhr = new XMLHttpRequest();
       xhr.open('GET', 'https://api.goapi.io/regional/provinsi?api_key=44ed8f2e-ad96-5c14-e78e-508020d3');

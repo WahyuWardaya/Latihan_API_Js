@@ -43,6 +43,33 @@
         }
       };
       xhr.send();
+
+      document.getElementById('select_provinsi').addEventListener('change', function () {
+        var xhrKota = new XMLHttpRequest();
+        var provinsiId = this.value;
+        var url = 'https://api.goapi.io/regional/kota?provinsi_id=' + provinsiId + '&api_key=7a896c10-47c7-55a3-3c4d-576a5567';
+
+        xhrKota.open('GET', url);
+        xhrKota.onreadystatechange = function () {
+          if (xhrKota.readyState === 4 && xhrKota.status === 200) {
+            var response = JSON.parse(xhrKota.responseText);
+            const kotas = response.data;
+            const selectKota = document.getElementById('select_kota');
+
+            // Bersihkan pilihan sebelumnya jika ada
+            selectKota.innerHTML = '<option value="">Pilih Kota</option>';
+
+            kotas.forEach((kota) => {
+              const option = document.createElement('option');
+              option.value = kota.id;
+              option.textContent = kota.name;
+              selectKota.appendChild(option);
+            });
+            console.log(kotas);
+          }
+        };
+        xhrKota.send();
+      });
     </script>
   </body>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan API JS</title>
+  </head>
+  <body>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://api.goapi.io/regional/provinsi?api_key=44ed8f2e-ad96-5c14-e78e-508020d3');
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          const province = response.data;
+          const selectProvinsi = document.getElementById('select_provinsi');
+
+          province.forEach((provinsi) => {
+            const option = document.createElement('option');
+            option.value = provinsi.id;
+            option.textContent = provinsi.name;
+            selectProvinsi.appendChild(option);
+          });
+          console.log(province);
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>

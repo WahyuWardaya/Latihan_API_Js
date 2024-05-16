@@ -26,7 +26,7 @@
     </form>
     <script>
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://api.goapi.io/regional/provinsi?api_key=44ed8f2e-ad96-5c14-e78e-508020d3');
+      xhr.open('GET', 'https://api.goapi.io/regional/provinsi?api_key=c4bfa5e1-f419-5656-35b6-5c65d217');
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
           var response = JSON.parse(xhr.responseText);
@@ -47,7 +47,7 @@
       document.getElementById('select_provinsi').addEventListener('change', function () {
         var xhrKota = new XMLHttpRequest();
         var provinsiId = this.value;
-        var url = 'https://api.goapi.io/regional/kota?provinsi_id=' + provinsiId + '&api_key=7a896c10-47c7-55a3-3c4d-576a5567';
+        var url = 'https://api.goapi.io/regional/kota?provinsi_id=' + provinsiId + '&api_key=c4bfa5e1-f419-5656-35b6-5c65d217';
 
         xhrKota.open('GET', url);
         xhrKota.onreadystatechange = function () {
